@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="An interactive scatterplot for exploring correlation coefficients, p-values, and sample size."
+    />
+    <title>Understanding Correlation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="page-title">
+        <header class="page-header">
+          <h1 id="page-title">Understanding Correlation</h1>
+        </header>
+
+        <form class="controls" aria-label="Scatterplot settings">
+          <label class="control">
+            <span>Correlation Coefficient (r)</span>
+            <select id="correlation" name="correlation">
+              <option value="-1">-1</option>
+              <option value="-0.75">-0.75</option>
+              <option value="-0.5">-0.5</option>
+              <option value="-0.25">-0.25</option>
+              <option value="0">0</option>
+              <option value="0.25">0.25</option>
+              <option value="0.5">0.5</option>
+              <option value="0.75">0.75</option>
+              <option value="1" selected>1</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>p-value</span>
+            <select id="p-value" name="p-value">
+              <option value="0.001">0.001</option>
+              <option value="0.01">0.01</option>
+              <option value="0.05" selected>0.05</option>
+              <option value="0.1">0.1</option>
+              <option value="0.5">0.5</option>
+              <option value="0.95">0.95</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span>Number of Observations</span>
+            <select id="sample-size" name="sample-size">
+              <option value="10">10</option>
+              <option value="50">50</option>
+              <option value="100" selected>100</option>
+              <option value="500">500</option>
+              <option value="1000">1000</option>
+            </select>
+          </label>
+        </form>
+
+        <section class="plot-panel" aria-label="Correlation scatterplot">
+          <canvas id="scatterplot" width="800" height="450"></canvas>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

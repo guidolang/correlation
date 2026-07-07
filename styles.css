@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  --bg: #eef3f0;
+  --surface: #ffffff;
+  --surface-soft: #f7faf8;
+  --ink: #17201d;
+  --muted: #60716a;
+  --line: #d8e1dc;
+  --axis: #26332f;
+  --grid: rgba(38, 51, 47, 0.1);
+  --point: #1f7a8c;
+  --point-strong: #135768;
+  --accent: #b86e2f;
+  --shadow: 0 22px 70px rgba(28, 45, 39, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    linear-gradient(120deg, rgba(31, 122, 140, 0.12), transparent 34%),
+    linear-gradient(300deg, rgba(184, 110, 47, 0.16), transparent 32%),
+    var(--bg);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: clamp(18px, 3.5vw, 42px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace {
+  width: min(100%, 980px);
+}
+
+.page-header {
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 34px rgba(28, 45, 39, 0.08);
+}
+
+.control {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.control span {
+  color: var(--muted);
+  font-size: 0.89rem;
+  font-weight: 700;
+}
+
+select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 38px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 18px)
+      52% / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%) calc(100% - 12px)
+      52% / 6px 6px no-repeat,
+    var(--surface-soft);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  appearance: none;
+}
+
+select:focus {
+  outline: 3px solid rgba(31, 122, 140, 0.22);
+  border-color: var(--point);
+}
+
+.plot-panel {
+  padding: clamp(10px, 2vw, 18px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 450px;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    align-items: start;
+  }
+
+  .page-header {
+    margin-bottom: 14px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
